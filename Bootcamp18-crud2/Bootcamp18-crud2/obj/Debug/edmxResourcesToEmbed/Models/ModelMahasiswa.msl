@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelMahasiswaStoreContainer" CdmEntityContainer="Entities1">
+    <EntitySetMapping Name="tbl_jurusan">
+      <EntityTypeMapping TypeName="ModelMahasiswa.tbl_jurusan">
+        <MappingFragment StoreEntitySet="tbl_jurusan">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nama_jurusan" ColumnName="nama_jurusan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_mahasiswa">
+      <EntityTypeMapping TypeName="ModelMahasiswa.tbl_mahasiswa">
+        <MappingFragment StoreEntitySet="tbl_mahasiswa">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nama" ColumnName="nama" />
+          <ScalarProperty Name="alamat" ColumnName="alamat" />
+          <ScalarProperty Name="tanggal_lahir" ColumnName="tanggal_lahir" />
+          <ScalarProperty Name="no_telp" ColumnName="no_telp" />
+          <ScalarProperty Name="jenis_kelamin" ColumnName="jenis_kelamin" />
+          <ScalarProperty Name="nama_universitas" ColumnName="nama_universitas" />
+          <ScalarProperty Name="id_jurusan" ColumnName="id_jurusan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ModelMahasiswa" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tbl_jurusan">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nama_jurusan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="tbl_mahasiswa" Relationship="Self.FK_tbl_mahasiswa" FromRole="tbl_jurusan" ToRole="tbl_mahasiswa" />
+  </EntityType>
+  <EntityType Name="tbl_mahasiswa">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nama" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="alamat" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="tanggal_lahir" Type="DateTime" Precision="3" />
+    <Property Name="no_telp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="jenis_kelamin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="nama_universitas" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="id_jurusan" Type="Int32" />
+    <NavigationProperty Name="tbl_jurusan" Relationship="Self.FK_tbl_mahasiswa" FromRole="tbl_mahasiswa" ToRole="tbl_jurusan" />
+  </EntityType>
+  <Association Name="FK_tbl_mahasiswa">
+    <End Role="tbl_jurusan" Type="Self.tbl_jurusan" Multiplicity="0..1" />
+    <End Role="tbl_mahasiswa" Type="Self.tbl_mahasiswa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_jurusan">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tbl_mahasiswa">
+        <PropertyRef Name="id_jurusan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Entities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tbl_jurusan" EntityType="Self.tbl_jurusan" />
+    <EntitySet Name="tbl_mahasiswa" EntityType="Self.tbl_mahasiswa" />
+    <AssociationSet Name="FK_tbl_mahasiswa" Association="Self.FK_tbl_mahasiswa">
+      <End Role="tbl_jurusan" EntitySet="tbl_jurusan" />
+      <End Role="tbl_mahasiswa" EntitySet="tbl_mahasiswa" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

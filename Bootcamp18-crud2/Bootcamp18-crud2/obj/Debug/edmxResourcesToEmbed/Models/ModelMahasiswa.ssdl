@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ModelMahasiswa.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbl_jurusan">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nama_jurusan" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_mahasiswa">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nama" Type="varchar" MaxLength="50" />
+    <Property Name="alamat" Type="varchar" MaxLength="255" />
+    <Property Name="tanggal_lahir" Type="datetime" />
+    <Property Name="no_telp" Type="varchar" MaxLength="50" />
+    <Property Name="jenis_kelamin" Type="varchar" MaxLength="50" />
+    <Property Name="nama_universitas" Type="varchar" MaxLength="50" />
+    <Property Name="id_jurusan" Type="int" />
+  </EntityType>
+  <Association Name="FK_tbl_mahasiswa">
+    <End Role="tbl_jurusan" Type="Self.tbl_jurusan" Multiplicity="0..1" />
+    <End Role="tbl_mahasiswa" Type="Self.tbl_mahasiswa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_jurusan">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tbl_mahasiswa">
+        <PropertyRef Name="id_jurusan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ModelMahasiswaStoreContainer">
+    <EntitySet Name="tbl_jurusan" EntityType="Self.tbl_jurusan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_mahasiswa" EntityType="Self.tbl_mahasiswa" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_tbl_mahasiswa" Association="Self.FK_tbl_mahasiswa">
+      <End Role="tbl_jurusan" EntitySet="tbl_jurusan" />
+      <End Role="tbl_mahasiswa" EntitySet="tbl_mahasiswa" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

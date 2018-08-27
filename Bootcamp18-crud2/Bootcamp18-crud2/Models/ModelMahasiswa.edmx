@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ModelMahasiswa.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbl_jurusan">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nama_jurusan" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_mahasiswa">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nama" Type="varchar" MaxLength="50" />
+          <Property Name="alamat" Type="varchar" MaxLength="255" />
+          <Property Name="tanggal_lahir" Type="datetime" />
+          <Property Name="no_telp" Type="varchar" MaxLength="50" />
+          <Property Name="jenis_kelamin" Type="varchar" MaxLength="50" />
+          <Property Name="nama_universitas" Type="varchar" MaxLength="50" />
+          <Property Name="id_jurusan" Type="int" />
+        </EntityType>
+        <Association Name="FK_tbl_mahasiswa">
+          <End Role="tbl_jurusan" Type="Self.tbl_jurusan" Multiplicity="0..1" />
+          <End Role="tbl_mahasiswa" Type="Self.tbl_mahasiswa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_jurusan">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_mahasiswa">
+              <PropertyRef Name="id_jurusan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelMahasiswaStoreContainer">
+          <EntitySet Name="tbl_jurusan" EntityType="Self.tbl_jurusan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_mahasiswa" EntityType="Self.tbl_mahasiswa" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tbl_mahasiswa" Association="Self.FK_tbl_mahasiswa">
+            <End Role="tbl_jurusan" EntitySet="tbl_jurusan" />
+            <End Role="tbl_mahasiswa" EntitySet="tbl_mahasiswa" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ModelMahasiswa" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tbl_jurusan">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nama_jurusan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tbl_mahasiswa" Relationship="Self.FK_tbl_mahasiswa" FromRole="tbl_jurusan" ToRole="tbl_mahasiswa" />
+        </EntityType>
+        <EntityType Name="tbl_mahasiswa">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nama" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="alamat" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="tanggal_lahir" Type="DateTime" Precision="3" />
+          <Property Name="no_telp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="jenis_kelamin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nama_universitas" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_jurusan" Type="Int32" />
+          <NavigationProperty Name="tbl_jurusan" Relationship="Self.FK_tbl_mahasiswa" FromRole="tbl_mahasiswa" ToRole="tbl_jurusan" />
+        </EntityType>
+        <Association Name="FK_tbl_mahasiswa">
+          <End Role="tbl_jurusan" Type="Self.tbl_jurusan" Multiplicity="0..1" />
+          <End Role="tbl_mahasiswa" Type="Self.tbl_mahasiswa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_jurusan">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="tbl_mahasiswa">
+              <PropertyRef Name="id_jurusan" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_jurusan" EntityType="Self.tbl_jurusan" />
+          <EntitySet Name="tbl_mahasiswa" EntityType="Self.tbl_mahasiswa" />
+          <AssociationSet Name="FK_tbl_mahasiswa" Association="Self.FK_tbl_mahasiswa">
+            <End Role="tbl_jurusan" EntitySet="tbl_jurusan" />
+            <End Role="tbl_mahasiswa" EntitySet="tbl_mahasiswa" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelMahasiswaStoreContainer" CdmEntityContainer="Entities1">
+          <EntitySetMapping Name="tbl_jurusan">
+            <EntityTypeMapping TypeName="ModelMahasiswa.tbl_jurusan">
+              <MappingFragment StoreEntitySet="tbl_jurusan">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nama_jurusan" ColumnName="nama_jurusan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_mahasiswa">
+            <EntityTypeMapping TypeName="ModelMahasiswa.tbl_mahasiswa">
+              <MappingFragment StoreEntitySet="tbl_mahasiswa">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nama" ColumnName="nama" />
+                <ScalarProperty Name="alamat" ColumnName="alamat" />
+                <ScalarProperty Name="tanggal_lahir" ColumnName="tanggal_lahir" />
+                <ScalarProperty Name="no_telp" ColumnName="no_telp" />
+                <ScalarProperty Name="jenis_kelamin" ColumnName="jenis_kelamin" />
+                <ScalarProperty Name="nama_universitas" ColumnName="nama_universitas" />
+                <ScalarProperty Name="id_jurusan" ColumnName="id_jurusan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
