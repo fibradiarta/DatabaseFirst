@@ -11,7 +11,7 @@ namespace Bootcamp18_crud2
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("=======MENU=======");
+            /*Console.WriteLine("=======MENU=======");
             Console.WriteLine("1. Mahasiswa");
             Console.WriteLine("2. Jurusan");
             Console.WriteLine("==================");
@@ -31,7 +31,41 @@ namespace Bootcamp18_crud2
                     System.Console.Write("Periksa kembali");
                     System.Console.Read();
                     break;
-            }
+            }*/
+
+            Program panggil = new Program();
+            panggil.Menu();
+        }
+
+        public void Menu()
+        {
+            int choice;
+            do
+            {
+                Console.Clear();
+                Console.WriteLine("=======MENU=======");
+                Console.WriteLine("1. Mahasiswa");
+                Console.WriteLine("2. Jurusan");
+                Console.WriteLine("3. Exit");
+                Console.WriteLine("==================");
+                Console.Write("Pilih Action : ");
+                choice =  Convert.ToInt32(System.Console.ReadLine());
+                switch (choice)
+                {
+                    case 1:
+                        MahasiswaController callMahasiswa = new MahasiswaController();
+                        callMahasiswa.Menu();
+                        break;
+                    case 2:
+                        JurusanController callJurusan = new JurusanController();
+                        callJurusan.Menu();
+                        break;
+                    default:
+                        System.Console.Write("Exit Cuy!");
+                        System.Console.Read();
+                        break;
+                }
+            } while (choice != 3);
         }
     }
 }

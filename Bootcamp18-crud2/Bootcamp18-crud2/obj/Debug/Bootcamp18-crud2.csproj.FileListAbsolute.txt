@@ -10,3 +10,14 @@ c:\users\fibradiarta\source\repos\Bootcamp18-crud2\Bootcamp18-crud2\obj\Debug\Bo
 c:\users\fibradiarta\source\repos\Bootcamp18-crud2\Bootcamp18-crud2\obj\Debug\Bootcamp18-crud2.csproj.CopyComplete
 c:\users\fibradiarta\source\repos\Bootcamp18-crud2\Bootcamp18-crud2\obj\Debug\Bootcamp18-crud2.exe
 c:\users\fibradiarta\source\repos\Bootcamp18-crud2\Bootcamp18-crud2\obj\Debug\Bootcamp18-crud2.pdb
+C:\Users\fibradiarta\Desktop\DatabaseFirst\Bootcamp18-crud2\Bootcamp18-crud2\bin\Debug\Bootcamp18-crud2.exe.config
+C:\Users\fibradiarta\Desktop\DatabaseFirst\Bootcamp18-crud2\Bootcamp18-crud2\bin\Debug\Bootcamp18-crud2.exe
+C:\Users\fibradiarta\Desktop\DatabaseFirst\Bootcamp18-crud2\Bootcamp18-crud2\bin\Debug\Bootcamp18-crud2.pdb
+C:\Users\fibradiarta\Desktop\DatabaseFirst\Bootcamp18-crud2\Bootcamp18-crud2\bin\Debug\EntityFramework.dll
+C:\Users\fibradiarta\Desktop\DatabaseFirst\Bootcamp18-crud2\Bootcamp18-crud2\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\fibradiarta\Desktop\DatabaseFirst\Bootcamp18-crud2\Bootcamp18-crud2\bin\Debug\EntityFramework.xml
+C:\Users\fibradiarta\Desktop\DatabaseFirst\Bootcamp18-crud2\Bootcamp18-crud2\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\fibradiarta\Desktop\DatabaseFirst\Bootcamp18-crud2\Bootcamp18-crud2\obj\Debug\Bootcamp18-crud2.csproj.CoreCompileInputs.cache
+C:\Users\fibradiarta\Desktop\DatabaseFirst\Bootcamp18-crud2\Bootcamp18-crud2\obj\Debug\Bootcamp18-crud2.csproj.CopyComplete
+C:\Users\fibradiarta\Desktop\DatabaseFirst\Bootcamp18-crud2\Bootcamp18-crud2\obj\Debug\Bootcamp18-crud2.exe
+C:\Users\fibradiarta\Desktop\DatabaseFirst\Bootcamp18-crud2\Bootcamp18-crud2\obj\Debug\Bootcamp18-crud2.pdb

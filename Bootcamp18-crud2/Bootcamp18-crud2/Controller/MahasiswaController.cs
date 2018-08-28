@@ -10,7 +10,7 @@ namespace Bootcamp18_crud2.Controller
     class MahasiswaController
     {
         Entities1 context = new Entities1();
-
+        Program panggil = new Program();
         int input;
 
         public void Menu()
@@ -26,7 +26,8 @@ namespace Bootcamp18_crud2.Controller
                 System.Console.WriteLine("3. Insert");
                 System.Console.WriteLine("4. Update");
                 System.Console.WriteLine("5. Delete");
-                System.Console.WriteLine("6. Exit");
+                System.Console.WriteLine("6. Menu Utama");
+                System.Console.WriteLine("7. Exit");
                 System.Console.WriteLine("=============================");
                 System.Console.Write("Pilih no Action : ");
 
@@ -60,12 +61,14 @@ namespace Bootcamp18_crud2.Controller
                         Delete(input);
 
                         break;
-
+                    case 6:
+                        panggil.Menu();
+                        break;
                     default:
                         Console.Write("Exit Cuy!");
                         break;
                 }
-            } while (pilihan != 6);
+            } while (pilihan != 7);
         }
 
         public void Insert()
@@ -199,10 +202,8 @@ namespace Bootcamp18_crud2.Controller
             
 
             Console.WriteLine("\n============Data Mahasiswa============\n");
-            
             foreach (tbl_mahasiswa mahasiswa in viewAll)
                 {
-                    
                     Console.WriteLine("Id Mahasiswa     : " + mahasiswa.id);
                     Console.WriteLine("Nama             : " + mahasiswa.nama);
                     Console.WriteLine("Alamat           : " + mahasiswa.alamat);
